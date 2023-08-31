@@ -38,6 +38,18 @@ echo "Copying contents to git repo"
 rm -rf "$CLONE_DIR/$INPUT_DESTINATION_FOLDER/"
 mkdir -p "$CLONE_DIR/$INPUT_DESTINATION_FOLDER/"
 cp -a "$INPUT_SOURCE_FOLDER/." "$CLONE_DIR/$INPUT_DESTINATION_FOLDER/"
+
+# input_source_folder_2
+if [ -n "$INPUT_SOURCE_FOLDER_2" ]
+then
+  echo "Copying contents to git repo"
+  # shellcheck disable=SC2115
+  rm -rf "$CLONE_DIR/$INPUT_DESTINATION_FOLDER_2/"
+  mkdir -p "$CLONE_DIR/$INPUT_DESTINATION_FOLDER_2/"
+  cp -a "$INPUT_SOURCE_FOLDER_2/." "$CLONE_DIR/$INPUT_DESTINATION_FOLDER_2/"
+fi
+
+# git commit and push
 cd "$CLONE_DIR"
 
 echo "Adding git commit"
